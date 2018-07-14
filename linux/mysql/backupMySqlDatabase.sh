@@ -67,5 +67,15 @@ tar czvf $ARCHIVE4 $DUMPFILE4 >> $LOGFILE 2>&1
 echo "$ARCHIVE4 BACKUP SUCCESSFUL!" >> $LOGFILE
 rm -f $DUMPFILE4
 else
-echo “$ARCHIVE4 Backup Fail!” >> $LOGFILE
+echo "$ARCHIVE4 Backup Fail!" >> $LOGFILE
 fi
+
+## 历史备份清理，默认保留14天
+KEEPTIME=14                                                             #定义需要删除的文件距离当前的天数
+DELFILE=`find $BACKUP_DIR -type f -mtime +$KEEPTIME -exec ls {} \;`     #找到天数大于{$KEEPTIME}天的文件
+for delfile in ${DELFILE}                                              #循环删除满足天数大于{$KEEPTIME}天的文件
+do
+rm -f $delfile
+echo "Clean Expired $KEEPTIME Days Backup File: $delfile SUCCESSFUL!!" >> $LOGFILE
+done
+
