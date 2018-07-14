@@ -57,3 +57,8 @@ HOME=/
 # *  *  *  *  * user-name command to be executed
   00 02 * * * root /usr/local/bin/backupMySqlDatabase             #定义每天凌晨2点00分执行备份数据库脚本
 ```
+
+# MySQL备份数据恢复命令
+```
+mysql -h 127.0.0.1 -P 3306 -u root -p < db1.sql
+```
