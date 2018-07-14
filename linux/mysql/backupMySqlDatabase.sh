@@ -40,7 +40,7 @@ tar czvf $ARCHIVE1 $DUMPFILE1 >> $LOGFILE 2>&1                               #�
 echo "$ARCHIVE1 BACKUP SUCCESSFUL!" >> $LOGFILE
 rm -f $DUMPFILE1
 else
-echo “$ARCHIVE1 Backup Fail!” >> $LOGFILE
+echo "$ARCHIVE1 Backup Fail!" >> $LOGFILE
 fi
 
 mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 -B $DATABASE2 > $DUMPFILE2
@@ -49,7 +49,7 @@ tar czvf $ARCHIVE2 $DUMPFILE2 >> $LOGFILE 2>&1
 echo "$ARCHIVE2 BACKUP SUCCESSFUL!" >> $LOGFILE
 rm -f $DUMPFILE2
 else
-echo “$ARCHIVE2 Backup Fail!” >> $LOGFILE
+echo "$ARCHIVE2 Backup Fail!" >> $LOGFILE
 fi
 
 mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 -B $DATABASE3 > $DUMPFILE3
@@ -58,7 +58,7 @@ tar czvf $ARCHIVE3 $DUMPFILE3 >> $LOGFILE 2>&1
 echo "$ARCHIVE3 BACKUP SUCCESSFUL!" >> $LOGFILE
 rm -f $DUMPFILE3
 else
-echo “$ARCHIVE3 Backup Fail!” >> $LOGFILE
+echo "$ARCHIVE3 Backup Fail!" >> $LOGFILE
 fi
 
 mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 --events --ignore-table=mysql.events -B $DATABASE4 > $DUMPFILE4
