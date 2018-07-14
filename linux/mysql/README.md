@@ -20,7 +20,10 @@ mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --mas
 ```
 mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 --events --ignore-table=mysql.events --all-databases > $DUMPFILE
 ```
-
+## 大数据量的备份，可是`-q`参数提高效率
+```
+mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 -q --events --ignore-table=mysql.events --all-databases > $DUMPFILE
+```
 ## 配置Linux定时任务
 ```
 # 进入定时任务编辑状态
