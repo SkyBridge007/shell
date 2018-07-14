@@ -6,6 +6,7 @@
 --master-data=2
   表示在dump过程中记录主库的binlog和pos点，并在dump文件中注释掉这一行；
 ```
+> 注意：脚本默认会清理备份目录下14天以前的文件.
 ## 不记录GTID备份数据
 ```
 mysqldump -h $MYSQLHOST -P $PORT  -u$USER -p$PASSWORD --single-transaction --master-data=2 --set-gtid-purged=OFF -B $DATABASE > $DUMPFILE
